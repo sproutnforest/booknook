@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booknook</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body{
+            color: #F5EED9;
+            background-color: #33402C;
+            overflow-x: hidden;
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        li {
+            padding: 0px 5px;
+            font-weight: 500;
+        }
+        .navbar {
+            width: 100vw;
+            z-index: 1000;
+            pointer-events: auto !important;
+        }
+        .navbar-collapse {
+            background-color: #F5EED9;
+        }
+        .navbar-nav .nav-link, .navbar-nav .btn {
+            color: #E07745;
+            pointer-events: auto !important;
+        }
+        .navbar-nav .btn {
+            background-color: #E07745;
+            color: #F5EED9;
+        }
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                padding: 40px 30px;
+                margin-top: 20px;
+                text-align: right;
+                border-radius: 8px;
+                max-width: 300px;
+                right: 20px;
+                top: 80px;
+                position: absolute;
+            }
+            .navbar-collapse ul{
+                max-width: 300px;
+                margin-left: auto;
+            }
+        }
+        .custom-card {
+            background-color: #F5EED9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .progress{
+            margin: -10px 10px 10px 10px;
+        }
+        .accordion-button{
+            background-color: #F5EED9;
+            width: 90vw;
+            text-align: start;
+            color: #33402C;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .accordion-collapse{
+            width: 90vw;
+            padding: 10px 0px 15px 0px;
+        }
+        footer{
+            background-color: #F9A93B;
+            margin-top: 50px;
+            padding: 70px 90px;
+        }
+        i{
+            padding: 10px 0px;
+        }
+        .priv a{
+            color:#F5EED9;
+        }
+        .tohover{
+            transition: transform 0.2s linear;
+            color:#F5EED9;
+        }
+        .tohover:hover{
+            transform: scale(1.1);
+            color:#F5EED9;
+        }
+        .input-group-text{
+            background-color: #F9A93B;
+            border: 0px;
+            color:#F5EED9
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    #F5EED9 = cream
+    #33402C = green
+    #F9A93B = orange
+    #E07745 = dark orange
+    #502314 = brown
+    -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #F5EED9; height: 70px; width: 100%;">
+        <b><a class="navbar-brand" href="#" style="font-weight: 1000; color: #E07745; padding-left: 30px; font-size: 25px;">booknook</a></b>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="padding-right: 30px;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacts">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#subscribe">
+                        <button type="button" class="btn tohover" style="background-color: #E07745; color: white;">
+                            Subscribe
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="grid">
+          <section style="padding-top: 40px;">
+            <hgroup style="padding-left: 20px;">
+              <h2>Welcome to the my little booknook</h2>
+              <h5>Explore reviews, TBR, and book recommendation of mine</h3>
+            </hgroup>
+            <div class="row align-items-center justify-content-center">
+                <div id="carouselExampleAutoplay" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000" style="width: 95%; padding-top: 30px;">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/banner-1.png" class="d-block w-100" alt="First food">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/banner-2.png" class="d-block w-100" alt="Second food">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/banner-3.png" class="d-block w-100" alt="Third food">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+        </div>
+    </div>
+    <div class="row align-items-center justify-content-center" style="height: 100px;">
+        <div class="col-6 mx-auto" style="text-align: center; padding: 70px 0px 20px 0px;">
+            <h2>Currently Reading Book</h2>
+        </div>
+    </div>
+    <div class="row align-items-center justify-content-center" style="height: auto;">
+        <div class="card custom-card" style="width: 10rem; margin-top: 60px;">
+            <img src="images/tfos_.jpg" class="card-img-top" alt="...">
+            <div class="card-body" style="background-color: transparent;">
+              <h5 class="card-title" style="color:#33402C">The Forest of Stars</h5>
+              <p class="card-subtitle" style="color:#33402C">Heather Kassner</p>
+            </div>
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="background-color: darkgrey;">
+                <div class="progress-bar" style="width: 73%; background-color: #33402C;"></div>
+              </div>
+          </div>
+    </div>
+    <div class="row align-items-center justify-content-center" style="height: 100px;">
+        <div class="col-6 mx-auto" style="text-align: center; padding: 70px 0px 20px 0px;">
+            <h2>Book Reviews</h2>
+        </div>
+    </div>
+    <div class="row align-items-center justify-content-center fluid" style="height: auto; padding: 30px 0px;">
+        <div class="accordion" id="accordionExample" style="padding-top: 35px;">
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="text-start">
+                    <p class="mb-0">Caraval - Stephanie Garber</p>
+                    </div>
+                    <div class="text-end">
+                    <i class="fas fa-chevron-down"></i>
+                    </div>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                <div style="width: 100%;">
+                                    <img src="images/caraval.jpg" alt="caraval" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-xs-12">
+                                <p style="font-size: 18px;">5
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                    <div class="text-start">
+                    <p class="mb-0">Diary of the Wimpy Kid; The Meltdown - Jeff Kinney</p>
+                    </div>
+                    <div class="text-end">
+                    <i class="fas fa-chevron-down"></i>
+                    </div>
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                <div style="width: 100%;">
+                                    <img src="images/wimpy.jpg" alt="wimpy kid" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-xs-12">
+                                <p style="font-size: 18px;">4
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="fas fa-star star-yellow"></i>
+                                    <i class="far fa-star star-grey"></i>
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="text-start">
+                        <p class="mb-0">Cinderella Cleaners #1; Change of a Dress - Maya Gold</p>
+                        </div>
+                        <div class="text-end">
+                        <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div style="width: 100%;">
+                                        <img src="images/cinderella1.jpg" alt="cinderella1" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-xs-12">
+                                    <p style="font-size: 18px;">4
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="far fa-star star-grey"></i>
+                                    </p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="text-start">
+                        <p class="mb-0">Cinderella Cleaners #2; Prep Cool - Maya Gold</p>
+                        </div>
+                        <div class="text-end">
+                        <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div style="width: 100%;">
+                                        <img src="images/cinderella2.jpg" alt="cinderella2" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-xs-12">
+                                    <p style="font-size: 18px;">4
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="far fa-star star-grey"></i>
+                                    </p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="text-start">
+                        <p class="mb-0">Cinderella Cleaners #3; Rock & Role - Maya Gold</p>
+                        </div>
+                        <div class="text-end">
+                        <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div style="width: 100%;">
+                                        <img src="images/cinderella3.jpg" alt="cinderella3" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-xs-12">
+                                    <p style="font-size: 18px;">4
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="far fa-star star-grey"></i>
+                                    </p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="text-start">
+                        <p class="mb-0">Cinderella Cleaners #4; Mask Appeal - Maya Gold</p>
+                        </div>
+                        <div class="text-end">
+                        <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div style="width: 100%;">
+                                        <img src="images/cinderella4.jpg" alt="cinderella4" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-xs-12">
+                                    <p style="font-size: 18px;">5
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                    </p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button btn collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="text-start">
+                        <p class="mb-0">Burlian - Tere Liye</p>
+                        </div>
+                        <div class="text-end">
+                        <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div style="width: 100%;">
+                                        <img src="images/burlian.jpg" alt="cinderella4" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-xs-12">
+                                    <p style="font-size: 18px;">5
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                        <i class="fas fa-star star-yellow"></i>
+                                    </p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quos maiores ullam nesciunt hic velit. Ad molestiae, incidunt assumenda, recusandae vitae, officia ab odio labore deserunt quas amet. Voluptatum, eligendi!</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center justify-content-center" style="height: 100px;">
+        <div class="col-6 mx-auto" style="text-align: center; padding: 0px 0px 20px 0px;">
+            <h2>Books I Want to Read</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem; margin-top: 20px;">
+                    <img src="images/legendary.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">Legendary</h5>
+                      <p class="card-subtitle" style="color:#33402C">Stephanie Garber</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem;  margin-top: 20px;">
+                    <img src="images/finale.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">Finale</h5>
+                      <p class="card-subtitle" style="color:#33402C">Stephanie Garber</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem;  margin-top: 20px;">
+                    <img src="images/spectacular.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">Spectacular</h5>
+                      <p class="card-subtitle" style="color:#33402C">Stephanie Garber</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem; margin-top: 20px;">
+                    <img src="images/carnivalesque.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">Carnivalesque</h5>
+                      <p class="card-subtitle" style="color:#33402C">Neil Jordan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem; margin-top: 20px;">
+                    <img src="images/bttm.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">Better Than The Movies</h5>
+                      <p class="card-subtitle" style="color:#33402C">Lynn Painter</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem;  margin-top: 20px;">
+                    <img src="images/cheatsheet.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">The Cheat Sheet</h5>
+                      <p class="card-subtitle" style="color:#33402C">Sarah Adams</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem;  margin-top: 20px;">
+                    <img src="images/morisaki1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">Days at the Morisaki Bookshop</h5>
+                      <p class="card-subtitle" style="color:#33402C">Satoshi Yagisawa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 row align-items-center justify-content-center">
+                <div class="card custom-card" style="width: 11rem; margin-top: 20px;">
+                    <img src="images/morisaki2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body" style="background-color: transparent;">
+                      <h5 class="card-title" style="color:#33402C">More Days at the Morisaki Bookshop</h5>
+                      <p class="card-subtitle" style="color:#33402C">Satoshi Yagisawa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <section aria-label="Subscribe example" style="padding: 50px 0px;">
+        <div class="row align-items-center justify-content-center" style="height: 100px;">
+            <div class="col-6 mx-auto" style="text-align: center;">
+                <h2>Subscribe to Stay Updated</h2>
+            </div>
+        </div>
+        <div class="container">
+          <article>
+            <form class="needs-validation" novalidate onsubmit="return validate(event);">
+                <div class="input-group">
+                    <span class="input-group-text" style=" margin: 10px 5px;">First name</span>
+                    <input type="text" aria-label="First name" class="form-control" style="border-radius: 5px;  margin: 10px 5px;" required>
+                    <span class="input-group-text" style=" margin: 10px 5px;">Email</span>
+                    <input type="text" aria-label="Email" class="form-control" style="border-radius: 5px; margin: 10px 5px;" required>
+                    <button type="submit" class="btn tohover" onclick="event.validate()" style="background-color: #E07745;  margin: 10px 5px;">
+                        Subscribe
+                      </button>
+                </div>
+            </form>
+          </article>
+        </div>
+      </section>
+    <footer>
+        <div class="container" id="contacts">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <div style="width: 100%;  padding: 10px 0px;">
+                        © sproutnforest 2024 all rights reserved
+                    </div>
+                    <div class="container priv">
+                        <small><a href="#">Privacy Policy</a> •
+                          <a href="#">Terms &amp; Conditions</a></small>
+                        </div>
+                </div>
+                <div class="col-sm-6 col-xs-12 text-end" id="footerright" style="text-align: end; padding: 10px 0px;">
+                        <i class="fas fa-regular fa-envelope"></i> geasandhea19@gmail.com 
+                        <br> <i class="fas fa-solid fa-phone"></i> 0878XXXXXXXX
+                        <br> <i class="fa-brands fa-instagram"></i> @geasandhea
+                </div>
+            </div>
+        </div> 
+    </footer>
+    <script>
+        function validate(event) {
+          event.preventDefault();
+    
+          const forms = document.querySelectorAll('.needs-validation');
+    
+          Array.from(forms).forEach(form => {
+            if (!form.checkValidity()) {
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated'); 
+          });
+    
+          if (!document.querySelector('.needs-validation').checkValidity()) {
+            return false; 
+          }
+        }
+    
+      </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
